@@ -50,10 +50,31 @@ ul {
     overflow-y: scroll;
 }
 .news-container {
-    margin: 50px 10px 10px;
+    margin: 60px 10px 10px;
     box-sizing: border-box;
 }
+.news-container_article {
+    clear: both;
+}
+.article_photo {
+    float: left;
+}
+.article_description{
+    margin-left: 110px;
+}
+.article_image {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+}
 
+.load-error {
+    background: rgba(255, 0, 0, 0.14);
+    color: red;
+    padding: 20px;
+    border-radius: 5px;
+}
 .footer {
 
 }
+

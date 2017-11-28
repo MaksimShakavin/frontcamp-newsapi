@@ -10,7 +10,7 @@ export default class Template {
         return articles
             .map(article => `
                 <div class="article news-container_article">
-                    <div class="article_photo"></div>
+                    <div class="article_photo"><img class="article_image" src="${article.urlToImage}" alt="article image"></div>
                     <div class="article_description">
                         <h3 class="article_title">${article.title}</h3>
                         <p class="article_content">${article.description}</p>
@@ -20,5 +20,9 @@ export default class Template {
                     </div>
                 </div>`)
             .join('');
+    }
+
+    error(text) {
+        return `<p class="load-error">${text}</p>`
     }
 }

@@ -8,6 +8,8 @@ export default class View {
 
         this.setSources = this.setSources.bind(this);
         this.setNews = this.setNews.bind(this);
+        this.showNewsLoadError = this.showNewsLoadError.bind(this);
+        this.showSourceLoadError = this.showSourceLoadError.bind(this);
     }
 
     setSources(sources) {
@@ -17,6 +19,14 @@ export default class View {
     setNews(articles,sourceName) {
         this.$newsContainer.innerHTML = this.template.news(articles);
         this.$headerSource.innerText = sourceName;
+    }
+
+    showNewsLoadError() {
+        this.$newsContainer.innerHTML = this.template.error('Error loading news');
+    }
+
+    showSourceLoadError() {
+        this.$sourcesList.innerHTML = this.template.error('Error loading sources');
     }
 
     bindSelectSource(onSelectSource) {

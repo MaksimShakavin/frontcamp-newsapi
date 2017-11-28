@@ -1,4 +1,3 @@
-'use strict';
 import Template from './template.js'
 import View from './view.js'
 import Model  from './model.js'
@@ -11,5 +10,5 @@ const view = new View(template);
 const model = new Model(NEWS_API_KEY);
 const controller = new Controller(view,model);
 
-window.addEventListener('load',() => {controller.initApp()});
+window.addEventListener('load',() => controller.initApp());
 

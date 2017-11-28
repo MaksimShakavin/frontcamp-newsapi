@@ -12,11 +12,13 @@ export default class Controller {
 
     initApp() {
         this.model.loadSources()
-            .then(this.view.setSources);
+            .then(this.view.setSources)
+            .catch(() => {this.view.showSourceLoadError()});
     }
 
     _onSelectSource(source) {
         this.model.loadNews(source.id)
-            .then((sources) => this.view.setNews(sources,source.name));
+            .then((sources) => this.view.setNews(sources,source.name))
+            .catch(() => this.view.showNewsLoadError());
     }
 }
