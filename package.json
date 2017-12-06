@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build:styles && npm run build:js && npm run postbuild",
+    "postbuild": "postbuild -i index.html -o dist/index.html -c dist -j dist -g dist/",
+    "build:styles": "copyfiles -f src/styles/main.css dist",
+    "build:js": "babel src/scripts -d build/js && browserify build/js/index.js -o dist/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,16 @@
   "bugs": {
     "url": "https://github.com/MaksimShakavin/frontcamp-newsapi/issues"
   },
-  "homepage": "https://github.com/MaksimShakavin/frontcamp-newsapi#readme"
+  "homepage": "https://github.com/MaksimShakavin/frontcamp-newsapi#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "browserify": "^14.5.0",
+    "copyfiles": "^1.2.0",
+    "postbuild": "^2.1.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "whatwg-fetch": "^2.0.3"
+  }
 }

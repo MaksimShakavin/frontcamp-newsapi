@@ -33,7 +33,7 @@ export default class View {
         this._$delegate(this.$sourcesList,'li.source_item','click',(event) => {
             const target = event.target;
             const source = {
-                id: target.dataset.id,
+                id: target.getAttribute('data-id'),
                 name: target.innerHTML,
             };
             onSelectSource(source);

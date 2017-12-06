@@ -1,5 +1,6 @@
 export default class Controller {
 
+    //haha
     constructor(view, model) {
         this.view = view;
         this.model = model;
