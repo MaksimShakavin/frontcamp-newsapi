@@ -7,11 +7,12 @@ const autoprefixer = require('autoprefixer')();
 
 module.exports = {
     entry: {
-        app: './src/scripts/index.js'
+        //app: './src/scripts/index.js',
+        amd: './src/scripts/amd.js'
     },
     module: {
         rules: [
-            {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"},
+            {test: /\.js$/, exclude: /node_modules|amd/, loader: "babel-loader"},
             {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
@@ -26,6 +27,14 @@ module.exports = {
                         }
                     ]
                 })
+            },
+            {
+                test: /\.json$/,
+                use: [
+                    {
+                        loader: path.resolve('./src/scripts/json-loader.js'),
+                    }
+                ]
             }
         ]
     },
@@ -39,6 +48,7 @@ module.exports = {
     ],
     output: {
         filename: '[name].bundle.js',
+        chunkFilename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     }
 };
