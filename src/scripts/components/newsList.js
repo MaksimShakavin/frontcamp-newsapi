@@ -1,6 +1,8 @@
 import Article from "./article";
 import {fetchNews} from "../actions/news";
 import {$create} from "../util";
+import ActionFactory from "../actions/actionFactory";
+import {ACTION_TYPES} from "../actions/actionTypes";
 
 export default class NewsList {
 
@@ -43,7 +45,7 @@ export default class NewsList {
         const source = this.store.getSelectedSource();
         if(this.selectedSource !== source) {
             this.selectedSource = source;
-            this.store.dispatch(fetchNews(source.sourceId));
+            this.store.dispatch(new ActionFactory().getAction(ACTION_TYPES.REQUEST_NEWS,source.sourceId));
             this.$newList.innerHTML = '';
             this.renderSourceHeader();
         } else if(source) {
