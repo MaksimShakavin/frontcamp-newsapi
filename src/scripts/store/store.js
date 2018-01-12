@@ -1,9 +1,9 @@
-import thunkMiddleware from 'redux-thunk'
-import { createLogger } from 'redux-logger'
-import { createStore, applyMiddleware } from 'redux'
+import thunkMiddleware from '../redux/middleware/redux-thunk'
+import { createLogger } from '../redux/middleware/redux-logger'
+import { createStore, applyMiddleware } from '../redux'
 import rootReducer from '../redusers';
 
-const loggerMiddleware = createLogger()
+const loggerMiddleware = createLogger();
 
 export default class Store {
     constructor() {

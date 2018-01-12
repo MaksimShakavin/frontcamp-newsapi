@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+import {combineReducers} from '../redux';
 import sources from './sources';
 import news from './news';
 
