@@ -7,8 +7,7 @@ const autoprefixer = require('autoprefixer')();
 
 module.exports = {
     entry: {
-        //app: './src/scripts/index.js',
-        amd: './src/scripts/amd.js'
+        app: './src/scripts/index.js',
     },
     module: {
         rules: [
@@ -27,14 +26,6 @@ module.exports = {
                         }
                     ]
                 })
-            },
-            {
-                test: /\.json$/,
-                use: [
-                    {
-                        loader: path.resolve('./src/scripts/json-loader.js'),
-                    }
-                ]
             }
         ]
     },
