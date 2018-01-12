@@ -12,7 +12,6 @@ export default class NewsList {
         this.selectedSource = null;
 
         this.onStoreUpdate = this.onStoreUpdate.bind(this);
-        store.subscribe(this.onStoreUpdate);
     }
 
     render() {

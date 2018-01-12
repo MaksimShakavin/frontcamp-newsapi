@@ -9,7 +9,6 @@ export default class Sources {
         this.sources = [];
 
         this.onStoreUpdate = this.onStoreUpdate.bind(this);
-        this.store.subscribe(this.onStoreUpdate);
         this._bindSelectSource();
     }
 

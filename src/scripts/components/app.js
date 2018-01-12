@@ -16,6 +16,12 @@ export default class App {
         this.news = new NewsList(this.$newsList,store);
 
         this.store.dispatch(new ActionFactory().getAction(ACTION_TYPES.REQUEST_SOURCES));
+        this.store.subscribe(this.onStoreUpdate.bind(this));
+    }
+
+    onStoreUpdate() {
+        this.sources.onStoreUpdate();
+        this.news.onStoreUpdate();
     }
 
 }
